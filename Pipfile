@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
+numpy = "*"
+pandas = "*"
+sklearn = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
