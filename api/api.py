@@ -1,7 +1,6 @@
 from fastapi import FastAPI # import FastAPI class
 from pydantic import BaseModel
 
-import numpy as np
 import pandas as pd
 import pickle
 from sklearn.ensemble import RandomForestClassifier
@@ -37,9 +36,7 @@ class modelData(BaseModel):
 @api.post("/preprocess/", response_model=modelData)
 def preprocess_data(data: titanicData):
 
-	# child indicator
 	child = int(data.Age <= 16)
-
 	# passenger class
 	Pclass_1=0
 	Pclass_2=0
@@ -96,7 +93,7 @@ def predict_from_preprocessed(data: modelData):
 	inputDF = pd.DataFrame(inputData, index=[0])
 
 	# load the Random Forest Classifier
-	with open("./rfSimple.pkl", 'rb') as file:
+	with open("api/rfSimple.pkl", 'rb') as file:
 			rf = pickle.load(file)
 		# make predictions
 	SurvivalProba = rf.predict_proba(inputDF)[0,1]

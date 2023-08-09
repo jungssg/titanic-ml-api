@@ -7,9 +7,11 @@ name = "pypi"
 fastapi = "*"
 numpy = "*"
 pandas = "*"
-sklearn = "*"
-scikit-learn = "*"
+scikit-learn = "==1.2.2"
 streamlit = "*"
+uvicorn = {version = "*", extras = ["standard"]}
+pydantic = "*"
+
 
 [dev-packages]
 
